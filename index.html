@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaleeka Rashadi - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Grandstander', cursive;
+            background: #f0e6ff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #efb2fa 0%, #a727a7 100%);
+            border-radius: 40px;
+            padding: 40px;
+            min-height: 120vh;
+            color: #1a0f2e;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a0f2e;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #7d1fbe;
+        }
+
+        /* Page content */
+        .page {
+            display: none;
+        }
+
+          /* Page content */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animation for heading */
+        @keyframes slideInFade {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        /* About Me / Hero Section */
+        .hero {
+            display: flex;
+            grid-template-columns: 1fr 1fr  ;
+            gap:80px;
+            align-items:start;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #1a0f2e;
+            animation: slideInFade 1s ease-in-out;
+            
+        }
+        @keyframes slideInFade {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1.simple-slide {
+            font-size: 52px;
+            color: #2d1b4e;
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.1;
+            animation: slideInFade 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            font-weight: 400px;
+            margin-bottom: 40px;
+            color: #1a0f2e;
+        
+        }
+
+        .hero-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a0f2e;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr ;
+            width:700px;
+            gap: 70px;
+            margin-bottom: 40px;
+        }
+
+        .skill-card {
+            background: rgba(125, 31, 190, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            height:200px;
+        }
+
+        .skill-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color:#1a0f2e;
+        }
+
+        .skill-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .hero-image {
+            display: grid;
+            justify-content: right;
+            align-items: flex-start;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+       
+
+        .profile-img img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            background: #7d1fbe;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 15px;
+            color: #1a0f2e;
+        }
+
+        .contact-info p {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+        }
+
+        .contact-info img {
+            width: 25px;
+            height: 25px;
+            stroke: #1a0f2e;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+    
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            
+        }
+
+        /* Resume Section */
+        .resume-content {
+            max-width: 900px;
+        }
+
+        .resume-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a0f2e;
+        }
+
+        .education-card {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .education-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            stroke: #1a0f2e;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .education-card h3 {
+            font-size: 20px;
+            color: #7d1fbe;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .education-card .year {
+            color: #1a0f2e;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: #1a0f2e;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .skills-section {
+            margin-top: 50px;
+        }
+
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .skill-bar h4 {
+            color: #1a0f2e;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+
+        .progress-bar {
+            width: 100%;
+            height: 14px;
+            background: rgba(125, 31, 190, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+                
+        @keyframes fillBar1 {
+            from { width: 0% !important; }
+            to { width: 90% !important; }
+        }
+
+        @keyframes fillBar2 {
+            from { width: 0% !important; }
+            to { width: 70% !important; }
+        }
+
+        @keyframes fillBar3 {
+            from { width: 0% !important; }
+            to { width: 70% !important; }
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7d1fbe, #a826a8);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 2s ease-out;
+        }
+
+
+        .skill-bar:nth-of-type(1) .progress-fill.animate {
+            animation: fillBar1 5s ease-out forwards;
+        }
+
+        .skill-bar:nth-of-type(2) .progress-fill.animate {
+            animation: fillBar2 5s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .skill-bar:nth-of-type(3) .progress-fill.animate {
+            animation: fillBar3 5s ease-out forwards;
+        }
+
+
+        /* Projects Section */
+        .projects-content {
+            max-width: 1200px;
+        }
+
+        .projects-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #1a0f2e;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+
+               transform: scale(0.8);
+            opacity: 0;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .project-image {
+            width: 320px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 15px;
+            display: block;
+        }
+
+        .project-card h3 {
+            color: #1a0f2e;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 0 20px 30px 20px;
+            line-height: 1.4;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+        }
+
+        .contact-form h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: #1a0f2e;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-family: 'Grandstander', cursive;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1a0f2e;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #b8a6d9;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-send {
+            background: #7d1fbe;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Grandstander', cursive;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-send:hover {
+             background: linear-gradient(45deg, #5d0f8f, #a32fd1);
+        }
+        .button-icon {
+            width: 20px; /* adjust icon size */
+            height: 20px;
+        }
+
+        .thank-you-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: right;
+        }
+
+        .thank-you-section h3 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a0f2e;
+            font-style: italic;
+            line-height: 1.2;
+        }
+
+        .contact-form p {
+            font-size: 16px;
+            color: #1a0f2e;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            .education-card {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a class="nav-link active" data-page="about">About Me</a>
+            <a class="nav-link" data-page="resume">Resume</a>
+            <a class="nav-link" data-page="projects">Projects</a>
+            <a class="nav-link" data-page="contact">Contact</a>
+        </nav>
+
+        <!-- About Me Page -->
+        <div id="about" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Hi! I am Shaleeka Rashadi</h1>
+                    <p>I am a Software Engineering undergraduate passionate about UI/UX design. I enjoy creating simple, user-centered interfaces by combining usability principles with clean visual design. I am continuously improving my skills in wireframing, prototyping, and interface design, and I am excited to gain hands-on experience as a UI/UX Intern.</p>
+                    
+                    <h2>What I Can Do</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3>Web Design</h3>
+                            <p>Create clean, responsive, and user-friendly websites with intuitive navigation and visually consistent layouts.</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>App Design</h3>
+                            <p>Design intuitive mobile app interfaces with clear user flows and accessible, user-centered layouts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="profile-section">
+                        <div class="profile-img">
+                            <img src="images/profile.png" alt="Profile">
+                        </div>
+                        <div class="badge">UI / UX Designer</div>
+                        <div class="contact-info">
+                            <p>
+                                <img src = "images/email (1).png">
+                                shaleekarashadi@gmail.com
+                            </p>
+                            <p>
+                                <img src = "images/phone.png">
+                                +94 78 337 3256
+                            </p>
+                            <p>
+                                <img src = "images/pin.png">
+                                Colombo, Sri Lanka
+                            </p>
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://www.behance.net/shaleekarashadi" title="Behance" target="_blank">
+                               <img src = "images/behance.png">
+                            </a>
+                            <a href="https://www.linkedin.com/in/shaleeka-bandara-59b4502b6/https://www.linkedin.com/in/shaleeka-bandara-59b4502b6/" title="LinkedIn" target="_blank">
+                                <img src = "images/linkedin (1).png">
+                            </a>
+                            <a href="https://github.com/Shaleeka2002" title="GitHub" target="_blank">
+                               <img src = "images/github (1).png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Page -->
+        <div id="resume" class="page">
+            <div class="resume-content">
+                <h2>Education</h2>
+                
+                <div class="education-card">
+                       <img class="education-icon" src="images/education.png" alt="School Icon">
+                    <div>
+                        <h3>University of Westminster, UK</h3>
+                        <div class="year">2024 – 2028</div>
+                        <p>Undergraduate focused on UI/UX design, Human-Computer Interaction, Web Development, and user-centered software design.</p>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                       <img class="education-icon" src="images/school-bag.png" alt="School Icon">
+                    <div>
+                        <h3>St Joseph's Girls Collage Gampola, Sri Lanka</h3>
+                        <div class="year">2014 – 2021</div>
+                        <p>I completed my secondary education and Combined Mathematics C1 and S2 at A/L and achieving 8 A's and 1 B at O/L.</p>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                       <img class="education-icon" src="images/school-bag.png" alt="School Icon">
+                    <div>
+                        <h3>Viharamahadevi Balika Maha Vidyalaya, Badulla, Sri Lanka</h3>
+                        <div class="year">2007 – 2014</div>
+                        <p>Successfully qualified for the Grade 5 Scholarship Examination, achieving a score of 166 marks.</p>
+                    </div>
+                </div>
+
+                <div class="skill-bar">
+                    <h4>Figma – 90%</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-level="90"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar">
+                    <h4>Graphic Design – 70%</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-level="70"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar">
+                    <h4>HTML, CSS, JAVA – 70%</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-level="70"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Projects Page -->
+        <div id="projects" class="page">
+            <div class="projects-content">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                         <a href="https://www.behance.net/gallery/235678525/Theme-Cafe-Website-for-order-Beverages" target="_blank">
+                        <img class="project-image" src="images/juice.png" alt="Theme Cafe - Website Design">
+                        <h3>Theme Cafe – Website Design for order Beverages</h3>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a href="https://www.behance.net/gallery/236996117/GiftMe-Flowers-Mobile-UI-Design" target="_blank">
+                        <img class="project-image" src="Cimages/gift.png" alt="GiftMe Flowers - Mobile UI">
+                        <h3>GiftMe Flowers – UI Design for Flower Order App</h3>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a href="https://www.behance.net/gallery/240835457/Sandwish-A-mobile-food-ordering-app" target="_blank">
+                        <img class="project-image" src="images\sandwish.png" alt="SandWish - Mobile App">
+                        <h3>SandWish – A Mobile Food Ordering App</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h2>Contact</h2>
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Message"></textarea>
+                    </div>
+                    <button class="btn-send" id="sendBtn">
+                        <img src="C:/Users/Acer/Downloads/shaleeka port/send.png" alt="Send Icon" class="button-icon">
+                        Send Message
+                    </button>
+                    <p id="thankMessage" style="display:none; color: green; margin-top: 10px;">
+                        Message Sent!
+                    </p>
+                    <p id="errorMessage" style="display:none; color:red; margin-top:10px;">
+                        ⚠️ Please fill all fields
+                    </p>
+                    <p>Thank you for taking the time to view my portfolio.</p>
+                </div>
+                <div class="thank-you-section">
+                   <img src="images/thank-you.png" alt="Thank You" class="thank-you-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        // Initialize progress bar observer
+        function initProgressBarAnimation() {
+            const fills = document.querySelectorAll('.progress-fill');
+
+            fills.forEach(fill => {
+                fill.style.width = '0%';
+
+                setTimeout(() => {
+                    const level = fill.getAttribute('data-level');
+                    fill.style.width = level + '%';
+                }, 300);
+            });
+        }
+
+        // Run when Resume tab is opened
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (link.dataset.page === 'resume') {
+                    initProgressBarAnimation();
+                }
+            });
+        });
+
+        // Navigation click handler
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.dataset.page;
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+                
+                link.classList.add('active');
+                document.getElementById(pageId).classList.add('active');
+                
+                // Reinitialize animation for new page
+                if (pageId === 'resume') {
+                    initProgressBarAnimation();
+                }
+            });
+        });
+        function animateProjects() {
+            const cards = document.querySelectorAll('.project-card');
+
+            cards.forEach(card => {
+                card.classList.remove('show'); // reset
+            });
+
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 200); // stagger effect
+            });
+        }
+
+        // Run when clicking Projects tab
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (link.dataset.page === 'projects') {
+                    animateProjects();
+                }
+            });
+        });
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // stop page refresh
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const thankMessage = document.getElementById("thankMessage");
+            const errorMessage = document.getElementById("errorMessage");
+
+            // Reset messages
+            thankMessage.style.display = "none";
+            errorMessage.style.display = "none";
+
+            // Validation
+            if (name === "" || email === "" || message === "") {
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            // If all fields filled
+            thankMessage.style.display = "block";
+
+            // Clear form after success
+            this.reset();
+
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                thankMessage.style.display = "none";
+            }, 3000);
+        });
+
+        // Initialize on page load
+        initProgressBarAnimation();
+    </script>
+</body>
+</html>
